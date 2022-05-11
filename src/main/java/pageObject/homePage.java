@@ -78,5 +78,14 @@ public class homePage {
             return false;
         }
     }
+    public String searchItem(int num) {
+        String check = items.get(num).getText();
+        searchItems.sendKeys(items.get(num).getText(), Keys.ENTER);
+        return check;
+    }
+
+    public String searchCheck() {
+        return items.get(0).getText();
+    }
 
 }

@@ -41,6 +41,14 @@ public class tests {
         homepage.changeCurrencyToEUR();
         Assertions.assertTrue(homepage.checkCurrency('€'));
     }
+    @Test
+    void searchCheck() throws InterruptedException {
+        homePage homepage = new homePage(driver);
+        String check = homepage.searchItem(3);
+        Thread.sleep(1500);
+        Assertions.assertEquals(check, homepage.searchCheck());
+
+    }
 
     @AfterEach
     void tearDown() {driver.quit();}
