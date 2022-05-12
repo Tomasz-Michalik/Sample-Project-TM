@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import pageObject.accountPage;
 import pageObject.homePage;
 import pageObject.loginPage;
 
@@ -30,6 +31,12 @@ public class registerLoginTests {
         loginPage loginpage = new loginPage(driver);
         loginpage.logInCheck();
         Assertions.assertEquals("test test", homepage.accountInfo());
+    }
+    @Test
+    void signOut() {
+        login();
+        accountPage accountPage = new accountPage(driver);
+        accountPage.signOut();
     }
 
 
