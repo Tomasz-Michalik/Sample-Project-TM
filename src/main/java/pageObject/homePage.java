@@ -35,6 +35,9 @@ public class homePage {
     @FindBy(css = "a[title='Euro']")
     WebElement eurButton;
 
+    @FindBy(css = "img[alt='PrestaShop']")
+    WebElement logoButton;
+
     @FindBy(className = "price")
     WebElement price;
 
@@ -43,6 +46,21 @@ public class homePage {
 
     @FindBy(name = "s")
     WebElement searchItems;
+
+    @FindBy(css = "i[class='material-icons']")
+    WebElement signInIcon;
+
+    @FindBy(css = "a[class='account']")
+    WebElement accountInfo;
+
+
+    public String accountInfo() {
+        return accountInfo.getText();
+    }
+
+    public void signIn() {
+        signInIcon.click();
+    }
 
     public String randomMail() {
         Random random = new Random();
@@ -86,6 +104,10 @@ public class homePage {
 
     public String searchCheck() {
         return items.get(0).getText();
+    }
+
+    public void buttonClick() {
+        logoButton.click();
     }
 
 }
