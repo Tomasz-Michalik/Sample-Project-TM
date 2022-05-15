@@ -23,9 +23,6 @@ public class homePage {
     @FindBy(name = "submitNewsletter")
     WebElement newsletterButton;
 
-    @FindBy(css = ".alert.alert-success")
-    WebElement newsletterAlert;
-
     @FindBy(css = ".expand-more._gray-darker")
     WebElement currencyBtn;
 
@@ -50,13 +47,7 @@ public class homePage {
     @FindBy(css = "i[class='material-icons']")
     WebElement signInIcon;
 
-    @FindBy(css = "a[class='account']")
-    WebElement accountInfo;
 
-
-    public String accountInfo() {
-        return accountInfo.getText();
-    }
 
     public void signIn() {
         signInIcon.click();
@@ -72,12 +63,6 @@ public class homePage {
         newsletterButton.click();
     }
 
-    public boolean newsAlertEnabled() {
-        return newsletterAlert.isDisplayed();
-    }
-    public String newsAlertText() {
-        return newsletterAlert.getText();
-    }
     public void changeCurrencyToUSD() throws InterruptedException {
         currencyBtn.click();
         Thread.sleep(1000);

@@ -4,6 +4,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pageObject.accountPage;
@@ -31,7 +32,7 @@ public class registerLoginTests {
         homepage.signIn();
         loginPage loginpage = new loginPage(driver);
         loginpage.logInCheck();
-        Assertions.assertEquals("test test", homepage.accountInfo());
+        Assertions.assertEquals("test test", driver.findElement(By.cssSelector("a[class='account']")).getText());
     }
     @Test
     void signOut() {

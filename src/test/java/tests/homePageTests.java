@@ -4,6 +4,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pageObject.homePage;
@@ -27,8 +28,8 @@ public class homePageTests {
         homePage homepage = new homePage(driver);
         homepage.subscribeNewsletter();
         String alertExp = "You have successfully subscribed to this newsletter.";
-        Assertions.assertEquals(alertExp,  homepage.newsAlertText());
-        Assertions.assertTrue(homepage.newsAlertEnabled());
+        Assertions.assertEquals(alertExp,  driver.findElement(By.cssSelector(".alert.alert-success")).getText());
+        Assertions.assertTrue(driver.findElement(By.cssSelector(".alert.alert-success")).isEnabled());
     }
 
     @Test
