@@ -28,8 +28,10 @@ public class homePageTests {
         homePage homepage = new homePage(driver);
         homepage.subscribeNewsletter();
         String alertExp = "You have successfully subscribed to this newsletter.";
-        Assertions.assertEquals(alertExp,  driver.findElement(By.cssSelector(".alert.alert-success")).getText());
-        Assertions.assertTrue(driver.findElement(By.cssSelector(".alert.alert-success")).isEnabled());
+        Assertions.assertAll(
+                () -> Assertions.assertEquals(alertExp,  driver.findElement(By.cssSelector(".alert.alert-success")).getText()),
+                () -> Assertions.assertTrue(driver.findElement(By.cssSelector(".alert.alert-success")).isEnabled()));
+
     }
 
     @Test
@@ -60,8 +62,7 @@ public class homePageTests {
         String firstLink = driver.getCurrentUrl();
         homepage.changeCurrencyToUSD();
         homepage.buttonClick();
-        String link = driver.getCurrentUrl();
-        Assertions.assertEquals(firstLink,link);
+        Assertions.assertEquals(firstLink,driver.getCurrentUrl());
     }
 
     @AfterEach
