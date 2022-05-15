@@ -21,10 +21,16 @@ public class loginPage {
     @FindBy(css = "#submit-login")
     WebElement signInButton;
 
+    @FindBy(css = "div.no-account>a")
+    WebElement noAccButton;
+
 
     public void logInCheck() {
         email.sendKeys("test@test.tm");
         password.sendKeys("12345");
         signInButton.click();
+    }
+    public void noAccClick() {
+        noAccButton.click();
     }
 }

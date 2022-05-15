@@ -9,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import pageObject.accountPage;
 import pageObject.homePage;
 import pageObject.loginPage;
+import pageObject.registerPage;
 
 public class registerLoginTests {
 
@@ -38,8 +39,16 @@ public class registerLoginTests {
         accountPage accountPage = new accountPage(driver);
         accountPage.signOut();
     }
-
-
+    @Test
+    void register() throws InterruptedException {
+        homePage homePage = new homePage(driver);
+        homePage.signIn();
+        loginPage loginPage = new loginPage(driver);
+        loginPage.noAccClick();
+        registerPage registerPage =  new registerPage(driver);
+        registerPage.register();
+        Assertions.assertTrue(registerPage.registerCheck());
+    }
 
     @AfterEach
     void tearDown() {driver.quit();}
