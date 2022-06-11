@@ -49,8 +49,9 @@ public class homePage {
 
 
 
-    public void signIn() {
+    public loginPage signIn() {
         signInIcon.click();
+        return new loginPage(driver);
     }
 
     public String randomMail() {
@@ -63,15 +64,15 @@ public class homePage {
         newsletterButton.click();
     }
 
-    public void changeCurrencyToUSD() throws InterruptedException {
+    public homePage changeCurrencyToUSD() {
         currencyBtn.click();
-        Thread.sleep(1000);
         usdButton.click();
+        return this;
     }
-    public void changeCurrencyToEUR() throws InterruptedException {
+    public homePage changeCurrencyToEUR() {
         currencyBtn.click();
-        Thread.sleep(1000);
         eurButton.click();
+        return this;
     }
     public boolean checkCurrency(char currency) {
         char firstChar = price.getText().charAt(0);

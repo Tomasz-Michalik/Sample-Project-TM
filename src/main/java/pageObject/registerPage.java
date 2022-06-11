@@ -45,21 +45,19 @@ public class registerPage {
         Random random = new Random();
         return "testRegister" + random.nextInt(10000000) + "@tm.tm";
     }
-    public void register() throws InterruptedException {
+    public void register() {
         socialTitle.click();
         firstName.clear();firstName.sendKeys("Jan");
         lastName.clear();lastName.sendKeys("Kowalski");
         email.clear();email.sendKeys(randomMail());
         password.clear();password.sendKeys("password");
         saveButton.click();
-        Thread.sleep(1000);
         emailCheck();
     }
-    void emailCheck() throws InterruptedException {
+    void emailCheck() {
         List<WebElement> emailAlert = driver.findElements(By.cssSelector(".alert.alert-danger"));
         if(emailAlert.size() != 0){
             register();
-            Thread.sleep(1000);
         }
         else{}
     }

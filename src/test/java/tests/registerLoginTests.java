@@ -12,6 +12,8 @@ import pageObject.homePage;
 import pageObject.loginPage;
 import pageObject.registerPage;
 
+import java.util.concurrent.TimeUnit;
+
 public class registerLoginTests {
 
     public static WebDriver driver;
@@ -24,14 +26,13 @@ public class registerLoginTests {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://mystore-testlab.coderslab.pl/index.php");
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
 
     @Test
     void login() {
         homePage homepage = new homePage(driver);
-        homepage.signIn();
-        loginPage loginpage = new loginPage(driver);
-        loginpage.logInCheck();
+        homepage.signIn().logInCheck();
         Assertions.assertEquals("test test", driver.findElement(By.cssSelector("a[class='account']")).getText());
     }
     @Test
@@ -41,13 +42,10 @@ public class registerLoginTests {
         accountPage.signOut();
     }
     @Test
-    void register() throws InterruptedException {
+    void register() {
         homePage homePage = new homePage(driver);
-        homePage.signIn();
-        loginPage loginPage = new loginPage(driver);
-        loginPage.noAccClick();
-        registerPage registerPage =  new registerPage(driver);
-        registerPage.register();
+        homePage.signIn().noAccClick().register();
+        registerPage registerPage = new registerPage(driver);
         Assertions.assertTrue(registerPage.registerCheck());
     }
 

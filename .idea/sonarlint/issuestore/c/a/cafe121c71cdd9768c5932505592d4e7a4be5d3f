@@ -1,0 +1,11 @@
+
+b	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(æ´æü
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(«¥ýð
+V	java:S125'"<This block of commented-out lines of code should be removed.(ÄÊ®‰üÿÿÿÿ
+3
+java:S2119-"Save and re-use this "Random".(¼ÝÅf
+T
+java:S1155;">Use isEmpty() to check whether the collection is empty or not.(Íÿœû
+C	java:S108>")Either remove or fill this block of code.(·©µãÿÿÿÿÿ
+\
+java:S1126A"AReplace this if-then-else statement by a single return statement.(…®Ï‚úÿÿÿÿ

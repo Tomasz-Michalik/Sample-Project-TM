@@ -9,6 +9,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pageObject.homePage;
 
+import java.util.concurrent.TimeUnit;
+
 public class homePageTests {
 
     public static WebDriver driver;
@@ -21,6 +23,7 @@ public class homePageTests {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://mystore-testlab.coderslab.pl/index.php");
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
 
     @Test
@@ -35,33 +38,31 @@ public class homePageTests {
     }
 
     @Test
-    void checkCurrencyUSD() throws InterruptedException {
+    void checkCurrencyUSD() {
         homePage homepage = new homePage(driver);
         homepage.changeCurrencyToUSD();
         Assertions.assertTrue(homepage.checkCurrency('$'));
     }
 
     @Test
-    void checkCurrencyEUR() throws InterruptedException {
+    void checkCurrencyEUR() {
         homePage homepage = new homePage(driver);
         homepage.changeCurrencyToEUR();
         Assertions.assertTrue(homepage.checkCurrency('€'));
     }
 
     @Test
-    void searchCheck() throws InterruptedException {
+    void searchCheck() {
         homePage homepage = new homePage(driver);
         String check = homepage.searchItem(3);
-        Thread.sleep(1500);
         Assertions.assertEquals(check, homepage.searchCheck());
     }
 
     @Test
-    void logoCheck() throws InterruptedException {
+    void logoCheck() {
         homePage homepage = new homePage(driver);
         String firstLink = driver.getCurrentUrl();
-        homepage.changeCurrencyToUSD();
-        homepage.buttonClick();
+        homepage.changeCurrencyToUSD().buttonClick();
         Assertions.assertEquals(firstLink,driver.getCurrentUrl());
     }
 

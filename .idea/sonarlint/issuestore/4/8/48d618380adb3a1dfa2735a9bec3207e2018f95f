@@ -1,0 +1,7 @@
+
+g	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(žÈÄŠúÿÿÿÿ
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(«¥ýð
+3
+java:S2119:"Save and re-use this "Random".(¼ÝÅf
+W
+java:S1126O"AReplace this if-then-else statement by a single return statement.(Ä†úï

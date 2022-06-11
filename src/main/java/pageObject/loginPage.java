@@ -30,7 +30,8 @@ public class loginPage {
         password.sendKeys("12345");
         signInButton.click();
     }
-    public void noAccClick() {
+    public registerPage noAccClick() {
         noAccButton.click();
+        return new registerPage(driver);
     }
 }
